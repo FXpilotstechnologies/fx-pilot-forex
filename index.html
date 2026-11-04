@@ -51,7 +51,9 @@ const missing=SUPABASE_URL.includes('https://vmebaazhfegyrbmcqcwg.supabase.co')|
 if(missing){showMessage(message,'Setup needed: replace the two Supabase placeholder values in index.html with your project URL and publishable key, then commit the file.','error');}
 else{
   try{
-    supabase=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+    supabase=createClient(https://vmebaazhfegyrbmcqcwg.supabase.cosupabase login
+supabase init
+supabase link --project-ref vmebaazhfegyrbmcqcwg,);
     const {data:{subscription}}=supabase.auth.onAuthStateChange((_event,session)=>{if(session?.user)showSignedIn(session.user);else showSignedOut();});
     window.addEventListener('beforeunload',()=>subscription.unsubscribe());
     supabase.auth.getSession().then(({data,error})=>{if(error)showMessage(message,error.message,'error');else if(data.session?.user)showSignedIn(data.session.user);else showSignedOut();});
@@ -74,7 +76,9 @@ authForm.addEventListener('submit',async event=>{
   finally{submitBtn.disabled=false;submitBtn.textContent=mode==='login'?'Log in':'Create account';}
 });
 resetBtn.addEventListener('click',async()=>{
-  clearMessage();if(!supabase){showMessage(message,'Add your Supabase URL and publishable key in the code first.','error');return;}
+  clearMessage();if(!supabase){showMessage(message,'https://vmebaazhfegyrbmcqcwg.supabase.cosupabase login
+supabase init
+supabase link --project-ref vmebaazhfegyrbmcqcwg.','error');return;}
   const email=emailInput.value.trim();if(!email){showMessage(message,'Enter your email address above first, then tap Forgot your password.','error');return;}
   try{const redirectTo=window.location.origin+window.location.pathname;const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo});if(error)throw error;showMessage(message,'If the address is registered, a password reset email will be sent. Check your inbox.','success');}
   catch(e){showMessage(message,e.message||'Could not send the reset email.','error');}
