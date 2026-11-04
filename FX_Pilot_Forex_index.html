@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<title>FX Pilot Forex | Member Access</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--panel2:#17253b;--text:#f2f6fc;--muted:#a9b7ca;--accent:#5ee0b5;--accent2:#7cb8ff;--danger:#ff9b9b;--border:rgba(255,255,255,.12)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(ellipse at top,#172b48 0,var(--bg) 56%);color:var(--text);display:flex;flex-direction:column}
+header{padding:22px 18px;border-bottom:1px solid var(--border)}.wrap{width:min(960px,100%);margin:0 auto}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07111e;font-weight:900}h1{font-size:1.1rem;margin:0}.tagline{color:var(--muted);font-size:.86rem;margin-top:3px}
+main{width:min(960px,100%);margin:auto;padding:34px 18px 46px;display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}.intro{padding:14px 4px}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:14px 0}p{color:var(--muted);line-height:1.65}.feature-list{padding:0;list-style:none;display:grid;gap:12px;margin-top:24px}.feature-list li{display:flex;gap:10px;align-items:flex-start;color:#dce7f5}.check{color:var(--accent);font-weight:900}
+.card{background:rgba(18,29,48,.94);border:1px solid var(--border);border-radius:22px;padding:24px;box-shadow:0 22px 70px rgba(0,0,0,.24)}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:5px;background:#0b1424;border-radius:13px;margin-bottom:22px}.tab{border:0;background:transparent;color:var(--muted);padding:11px;border-radius:10px;cursor:pointer;font-weight:750}.tab.active{background:var(--panel2);color:var(--text)}
+label{display:block;margin:14px 0 7px;color:#dce7f5;font-size:.9rem;font-weight:650}input{width:100%;padding:13px 14px;border-radius:11px;border:1px solid var(--border);background:#0a1424;color:var(--text);font:inherit;outline:none}input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(124,184,255,.12)}button.primary{width:100%;border:0;border-radius:11px;padding:13px 16px;margin-top:18px;background:var(--accent);color:#06131b;font:inherit;font-weight:850;cursor:pointer}button.primary:disabled{opacity:.55;cursor:wait}button.secondary{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:10px;font:inherit;cursor:pointer}.link-button{border:0;background:none;color:var(--accent2);padding:12px 0 0;cursor:pointer;font:inherit}
+.message{margin-top:14px;padding:11px 12px;border-radius:10px;display:none;font-size:.9rem;line-height:1.45}.message.show{display:block}.message.error{background:rgba(255,100,100,.1);border:1px solid rgba(255,100,100,.25);color:var(--danger)}.message.success{background:rgba(94,224,181,.1);border:1px solid rgba(94,224,181,.25);color:var(--accent)}.small{font-size:.8rem;color:var(--muted)}.dashboard{display:none}.dashboard.show{display:block}.auth-view.hidden{display:none}.member-box{padding:16px;border:1px solid var(--border);border-radius:14px;background:#0b1424;margin:18px 0;overflow-wrap:anywhere}footer{margin-top:auto;padding:18px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem}
+@media(max-width:740px){main{grid-template-columns:1fr;padding-top:22px;gap:16px}.intro{padding:4px 2px}h2{font-size:2.3rem}.card{padding:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap brand"><div class="logo">FX</div><div><h1>FX Pilot Forex</h1><div class="tagline">Learn the markets. Practise responsibly.</div></div></div></header>
+<main>
+<section class="intro"><div class="eyebrow">Your learning journey</div><h2>Build your forex knowledge, one step at a time.</h2><p>Create a member account to access your personal member area. Forex trading involves risk; this site is for learning and does not promise profits or provide guaranteed investment returns.</p><ul class="feature-list"><li><span class="check">✓</span><span>Member registration and email sign-in</span></li><li><span class="check">✓</span><span>Password reset support</span></li><li><span class="check">✓</span><span>A simple personal member dashboard</span></li></ul></section>
+<section class="card">
+<div id="authView" class="auth-view"><div class="tabs" role="tablist" aria-label="Account options"><button type="button" class="tab active" id="loginTab">Log in</button><button type="button" class="tab" id="signupTab">Create account</button></div>
+<form id="authForm"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required><button type="submit" class="primary" id="submitBtn">Log in</button><button type="button" class="link-button" id="resetBtn">Forgot your password?</button></form>
+<div id="message" class="message" role="status" aria-live="polite"></div><p class="small">Use an email address you can access. If email confirmation is enabled in Supabase, check your inbox after creating an account.</p></div>
+<div id="dashboard" class="dashboard"><div class="eyebrow">Member area</div><h2 style="font-size:1.8rem">Welcome aboard!</h2><p>You are signed in to FX Pilot Forex.</p><div class="member-box"><div class="small">Signed in as</div><strong id="memberEmail">—</strong></div><p class="small">This is the starter member dashboard. Premium access, payments, and protected member content must be configured separately before launch.</p><button type="button" class="secondary" id="logoutBtn">Log out</button><div id="dashMessage" class="message" role="status" aria-live="polite"></div></div>
+</section>
+</main>
+<footer>© <span id="year"></span> FX Pilot Forex · Educational content only. Trading can result in losses.</footer>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+// Replace both placeholders below with your Supabase project details.
+const SUPABASE_URL = 'PASTE_YOUR_PROJECT_URL_HERE';
+const SUPABASE_PUBLISHABLE_KEY = 'PASTE_YOUR_PUBLISHABLE_KEY_HERE';
+
+const authView=document.getElementById('authView'), dashboard=document.getElementById('dashboard'), authForm=document.getElementById('authForm');
+const emailInput=document.getElementById('email'), passwordInput=document.getElementById('password'), submitBtn=document.getElementById('submitBtn');
+const loginTab=document.getElementById('loginTab'), signupTab=document.getElementById('signupTab'), message=document.getElementById('message');
+const dashMessage=document.getElementById('dashMessage'), resetBtn=document.getElementById('resetBtn'), logoutBtn=document.getElementById('logoutBtn');
+let mode='login', supabase=null;
+document.getElementById('year').textContent=new Date().getFullYear();
+function showMessage(el,text,type='success'){el.textContent=text;el.className=`message show ${type}`;}
+function clearMessage(){message.textContent='';message.className='message';}
+function setMode(next){mode=next;clearMessage();loginTab.classList.toggle('active',mode==='login');signupTab.classList.toggle('active',mode==='signup');submitBtn.textContent=mode==='login'?'Log in':'Create account';passwordInput.autocomplete=mode==='login'?'current-password':'new-password';}
+loginTab.addEventListener('click',()=>setMode('login')); signupTab.addEventListener('click',()=>setMode('signup'));
+function showSignedIn(user){authView.classList.add('hidden');dashboard.classList.add('show');document.getElementById('memberEmail').textContent=user?.email||'Member';}
+function showSignedOut(){authView.classList.remove('hidden');dashboard.classList.remove('show');}
+const missing=SUPABASE_URL.includes('PASTE_YOUR_')||SUPABASE_PUBLISHABLE_KEY.includes('PASTE_YOUR_');
+if(missing){showMessage(message,'Setup needed: replace the two Supabase placeholder values in index.html with your project URL and publishable key, then commit the file.','error');}
+else{
+  try{
+    supabase=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+    const {data:{subscription}}=supabase.auth.onAuthStateChange((_event,session)=>{if(session?.user)showSignedIn(session.user);else showSignedOut();});
+    window.addEventListener('beforeunload',()=>subscription.unsubscribe());
+    supabase.auth.getSession().then(({data,error})=>{if(error)showMessage(message,error.message,'error');else if(data.session?.user)showSignedIn(data.session.user);else showSignedOut();});
+  }catch(e){showMessage(message,'Could not start Supabase. Check your project URL and publishable key.','error');}
+}
+authForm.addEventListener('submit',async event=>{
+  event.preventDefault();clearMessage();
+  if(!supabase){showMessage(message,'Add your Supabase URL and publishable key in the code first.','error');return;}
+  const email=emailInput.value.trim(),password=passwordInput.value;
+  submitBtn.disabled=true;submitBtn.textContent=mode==='login'?'Logging in…':'Creating account…';
+  try{
+    if(mode==='signup'){
+      const {data,error}=await supabase.auth.signUp({email,password});if(error)throw error;
+      if(data.session?.user)showSignedIn(data.session.user);
+      else showMessage(message,'Account request received. Check your email for a confirmation link if confirmation is enabled.','success');
+    }else{
+      const {data,error}=await supabase.auth.signInWithPassword({email,password});if(error)throw error;showSignedIn(data.user);
+    }
+  }catch(e){showMessage(message,e.message||'Something went wrong. Please try again.','error');}
+  finally{submitBtn.disabled=false;submitBtn.textContent=mode==='login'?'Log in':'Create account';}
+});
+resetBtn.addEventListener('click',async()=>{
+  clearMessage();if(!supabase){showMessage(message,'Add your Supabase URL and publishable key in the code first.','error');return;}
+  const email=emailInput.value.trim();if(!email){showMessage(message,'Enter your email address above first, then tap Forgot your password.','error');return;}
+  try{const redirectTo=window.location.origin+window.location.pathname;const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo});if(error)throw error;showMessage(message,'If the address is registered, a password reset email will be sent. Check your inbox.','success');}
+  catch(e){showMessage(message,e.message||'Could not send the reset email.','error');}
+});
+logoutBtn.addEventListener('click',async()=>{
+  if(!supabase)return;const {error}=await supabase.auth.signOut();
+  if(error)showMessage(dashMessage,error.message,'error');else{dashMessage.className='message';showSignedOut();setMode('login');showMessage(message,'You have logged out successfully.','success');}
+});
+</script>
+</body>
+</html>
