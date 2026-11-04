@@ -32,8 +32,8 @@ label{display:block;margin:14px 0 7px;color:#dce7f5;font-size:.9rem;font-weight:
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 // Replace both placeholders below with your Supabase project details.
-const SUPABASE_URL = 'PASTE_YOUR_PROJECT_URL_HERE';
-const SUPABASE_PUBLISHABLE_KEY = 'PASTE_YOUR_PUBLISHABLE_KEY_HERE';
+const SUPABASE_URL = 'https://vmebaazhfegyrbmcqcwg.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_AvFGWs31ayJwC4Fa1VzYOQ_FWHgOiW2';
 
 const authView=document.getElementById('authView'), dashboard=document.getElementById('dashboard'), authForm=document.getElementById('authForm');
 const emailInput=document.getElementById('email'), passwordInput=document.getElementById('password'), submitBtn=document.getElementById('submitBtn');
@@ -47,7 +47,7 @@ function setMode(next){mode=next;clearMessage();loginTab.classList.toggle('activ
 loginTab.addEventListener('click',()=>setMode('login')); signupTab.addEventListener('click',()=>setMode('signup'));
 function showSignedIn(user){authView.classList.add('hidden');dashboard.classList.add('show');document.getElementById('memberEmail').textContent=user?.email||'Member';}
 function showSignedOut(){authView.classList.remove('hidden');dashboard.classList.remove('show');}
-const missing=SUPABASE_URL.includes('PASTE_YOUR_')||SUPABASE_PUBLISHABLE_KEY.includes('PASTE_YOUR_');
+const missing=SUPABASE_URL.includes('https://vmebaazhfegyrbmcqcwg.supabase.co')||SUPABASE_PUBLISHABLE_KEY.includes('sb_publishable_AvFGWs31ayJwC4Fa1VzYOQ_FWHgOiW2);
 if(missing){showMessage(message,'Setup needed: replace the two Supabase placeholder values in index.html with your project URL and publishable key, then commit the file.','error');}
 else{
   try{
